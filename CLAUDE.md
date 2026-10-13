@@ -1,7 +1,5 @@
 # BrewOps
 
-Telemetry app for the office coffee machines. Python with FastAPI, data in SQLite.
+The project instructions live in AGENTS.md, shared by every coding agent used on this repo. This line pulls them in for Claude Code:
 
-Run it with `uv run start` and open http://localhost:8123.
-
-The code is in `src/brewops/`.
+@AGENTS.md
