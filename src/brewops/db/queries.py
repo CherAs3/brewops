@@ -134,14 +134,14 @@ def get_machine_health(conn: sqlite3.Connection, machine_id: int) -> dict[str, A
             SELECT dt.label, COUNT(*) AS count
             FROM brew_events be
             JOIN drink_types dt ON be.drink_type = dt.name
-            WHERE be.machine_id = ? AND be.timestamp > datetime('now', '-30 days')
+            WHERE be.machine_id = ?
             GROUP BY be.drink_type
             HAVING COUNT(*) = (
                 SELECT MAX(brew_count)
                 FROM (
                     SELECT COUNT(*) AS brew_count
                     FROM brew_events
-                    WHERE machine_id = ? AND timestamp > datetime('now', '-30 days')
+                    WHERE machine_id = ?
                     GROUP BY drink_type
                 )
             )
